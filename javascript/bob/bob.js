@@ -6,9 +6,12 @@
 var Bob = function() {};
 
 Bob.prototype.hey = function(input) {
-//
-// YOUR CODE GOES HERE
-//
+const output = {
+  '' : "Whatever.",
+  'WATCH OUT!' : 'Whoa, chill out!'s
+}
+
+return output[input]
 };
 
 module.exports = Bob;
