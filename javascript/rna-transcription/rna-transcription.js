@@ -5,26 +5,47 @@ var NameOfConstructorDoesNotMatter = function() {
 };
 
 
-
-// Iteration with key value pairs
 NameOfConstructorDoesNotMatter.prototype.toRna = function(input) {
-    let output = [];
-    const dnaToRna = {
+     let output = "";
+     const dnaToRna = {
         'C' : 'G',
         'G' : 'C',
         'A' : 'U',
         'T' : 'A'
     };
+    Object
+        .keys(input)
+        .map(function(i, arr) {
+            Object
+                .keys(dnaToRna)
+                .filter(function (ele, ind, arr) {
+                    input[i] === ele ? output = output + dnaToRna[ele] : ""
+                })
+        })
 
-    for (let index in input) {
-        // console.log(dnaToRna[input[index]]);
-        output.push(dnaToRna[input[index]]);
-    };
-
-    return output.join('');
+    return output;
 };
 
-NameOfConstructorDoesNotMatter.prototype.toRna('GAT');
+
+// Iteration with key value pairs
+// NameOfConstructorDoesNotMatter.prototype.toRna = function(input) {
+//     let output = [];
+//     const dnaToRna = {
+//         'C' : 'G',
+//         'G' : 'C',
+//         'A' : 'U',
+//         'T' : 'A'
+//     };
+
+//     for (let index in input) {
+//         // console.log(dnaToRna[input[index]]);
+//         output.push(dnaToRna[input[index]]);
+//     };
+
+//     return output.join('');
+// };
+
+// console.log(NameOfConstructorDoesNotMatter.prototype.toRna('GGACTAAT'));
 // NameOfConstructorDoesNotMatter.prototype.toRna = function(input) {
     // let output = [];
     // let DNAarr = input.toUpperCase().split('');
