@@ -6,12 +6,25 @@
 var Bob = function() {};
 
 Bob.prototype.hey = function(input) {
-const output = {
-  '' : "Whatever.",
-  'WATCH OUT!' : 'Whoa, chill out!'s
-}
+  let punct = input.slice(-1);
+  let lastLetter = input.slice(-2);
+  var lastLetterIsCapital = /^[A-Z]/.test(lastLetter);
 
-return output[input]
+  if (!lastLetterIsCapital && punct === '!') {
+    punct = "."
+  } 
+
+  const output = {
+    '.'            : "Whatever.",
+    undefined      : "Whatever.",
+    '!'            : "Whoa, chill out!",
+    '?'            : "Sure."
+  }
+    console.log(output[punct])
+    return output[punct]
+ 
+
+  // console.log(results)
 };
 
 module.exports = Bob;
